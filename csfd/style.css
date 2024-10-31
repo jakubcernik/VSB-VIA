@@ -15,12 +15,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 50px; /* Nastavíme výšku headeru pro lepší přehled */
 }
 
 .logo {
-    height: 30px; /* Výchozí velikost loga */
-    max-height: 40px; /* Maximální výška loga */
-    margin-right: 20px;
+    max-height: 100%; /* Maximální výška přizpůsobená výšce headeru */
+    width: auto; /* Automatická šířka pro zachování poměru stran */
+    height: 100%; /* Výška loga přizpůsobená výšce headeru */
 }
 
 .header-container input {
@@ -86,4 +87,38 @@ main {
     .header-container nav {
         display: none; /* Skrytí navigace na menších obrazovkách */
     }
+}
+
+.search-field {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.search-field input[type="text"] {
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-btn {
+    background-color: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    width: 18px; /* Přizpůsob velikosti ikony dle potřeby */
+    height: 18px;
+}
+
+.logo
+{
+    max-height: fit-content;
 }
