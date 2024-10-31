@@ -25,7 +25,7 @@ body, html {
 .content-container {
     width: 50%; /* Šířka hlavního obsahu */
     background-color: white;
-    padding: 20px;
+    padding: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
 }
@@ -38,10 +38,29 @@ header {
     border-top-right-radius: 5px;
 }
 
-.header-container {
+.header-top-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.header-bottom-section{
+    background-color: rgb(211, 211, 211);
+}
+
+.header-bottom-section nav{
+    padding-left: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: black;
+}
+
+.header-bottom-section nav a{
+    padding-right: 20px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: small;
 }
 
 .logo {
@@ -49,31 +68,23 @@ header {
     width: auto;
 }
 
-/* Stylování navigace */
-.header-container nav a {
-    margin: 0 10px;
-    color: white;
-    text-decoration: none;
-}
-
 /* Tlačítko Můj účet */
-.header-container button {
+.header-top-section button {
     background-color: white;
     color: #BA0305;
     border: none;
     cursor: pointer;
     padding: 5px 10px;
-    border-radius: 4px;
 }
 
 /* Vyhledávací pole */
 .search-field {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
     overflow: hidden;
-    height: 40px;
+    height: 40px; /* Nastavíme pevnou výšku pro vyhledávací pole */
 }
 
 .search-field input[type="text"] {
@@ -82,18 +93,28 @@ header {
     font-size: 16px;
     outline: none;
     flex: 1;
+    height: 100%; /* Přizpůsobí výšku rodičovskému kontejneru */
+    box-sizing: border-box; /* Zajistí, že padding nebude zvětšovat výšku */
 }
 
 .search-btn {
-    background-color: transparent;
+    background-color: rgb(235, 235, 235);
     border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
     cursor: pointer;
-    width: 40px;
-    height: 100%;
+    height: 100%; /* Zajistí stejnou výšku jako rodič */
+    width: 40px; /* Nastaví šířku tlačítka na čtvercový tvar */
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0; /* Odstraní vnitřní padding tlačítka */
 }
+
+.search-btn:hover {
+    background-color: rgb(211, 211, 211);
+}
+
 
 .account-btn
 {
@@ -142,7 +163,7 @@ main {
         width: 70%; /* Přizpůsobení šířky pro tablety */
     }
 
-    .header-container nav {
+    .header-top-section nav {
         display: none; /* Skrytí navigace na menších obrazovkách */
     }
 }
