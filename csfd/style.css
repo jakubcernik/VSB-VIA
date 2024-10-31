@@ -16,18 +16,17 @@ body, html {
     justify-content: center;
     padding-top: 100px; /* Odsazení shora */
     background-image: url('img/content/ad-background.jpg'); /* Obrázek pro reklamu */
-    background-size: fit;
+    background-size: auto;
     background-position: center;
     min-height: 100vh;
 }
 
 /* Hlavní obsahový blok */
 .content-container {
-    width: 50%; /* Šířka hlavního obsahu */
+    width: 60%; /* Šířka hlavního obsahu */
     background-color: white;
     padding: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 /* Hlavička */
@@ -128,10 +127,11 @@ header {
 
 /* Sekce obsahu */
 main {
-    padding: 20px 0;
+    padding: 20px 0; /* Pouze vertikální padding, aby se obsah vešel */
+    width: 100%;
 }
 
-.trailers, .promo, .news, .tv-tips {
+.trailer, .promo, .news, .tv-tips {
     margin-bottom: 20px;
 }
 
@@ -140,13 +140,47 @@ main {
     height: auto;
 }
 
+.promo {
+    display: flex;
+    gap: 20px; /* Mezera mezi dvěma promo boxy */
+    width: 100%; /* Zajišťuje, že promo sekce zapadne do šířky main */
+}
+
 .promo-section {
-    margin-bottom: 20px;
+    background-color: #f7f7f7;
+    flex: 1 1 calc(50%); /* Šířka 50 % mínus polovina mezery */
+    box-sizing: border-box; /* Zahrnuje padding do šířky */
+    border-radius: 4px;
+    border: solid 1px #e3e3e3;
+}
+
+.promo-section h3 {
+    background-color: rgb(211, 211, 211);
+    padding: 8px;
+    margin: 0 0 10px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    text-align: left;
+    font-weight: normal;
+}
+
+.promo-items {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .promo-items img {
     width: 80px;
-    margin: 0 5px;
+    height: auto;
+    padding: 5px;
+}
+
+/* Responzivní zobrazení promo sekcí pod sebou */
+@media (max-width: 768px) {
+    .promo {
+        flex-direction: column;
+    }
 }
 
 .tv-tips ul {

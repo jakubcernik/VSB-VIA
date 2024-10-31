@@ -7,83 +7,98 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="page-background"> <!-- Pozadí s reklamou -->
-        <div class="content-container"> <!-- Hlavní obsahový blok -->
-            <header>
-                <div class="header-top-section">
-                    <img src="img/icons/csfd-logo.svg" alt="ČSFD logo" class="logo">
-                    <div class="search-field">
-                        <input type="text" placeholder="Vyhledávání">
-                        <button class="search-btn">
-                            <img src="img/icons/search_icon.webp" alt="Vyhledávání" class="search-icon">
-                        </button>
-                    </div>
-                    <button class="account-btn">Můj účet</button>
+<div class="page-background"> <!-- Pozadí s reklamou -->
+    <div class="content-container"> <!-- Hlavní obsahový blok -->
+        <header>
+            <div class="header-top-section">
+                <img src="img/icons/csfd-logo.svg" alt="ČSFD logo" class="logo">
+                <div class="search-field">
+                    <input type="text" placeholder="Vyhledávání">
+                    <button class="search-btn">
+                        <img src="img/icons/search_icon.webp" alt="Vyhledávání" class="search-icon">
+                    </button>
                 </div>
-                <div class="header-bottom-section">
-                    <nav>
-                        <a href="#">Novinky</a>
-                        <a href="#">Televize</a>
-                        <a href="#">Kino</a>
-                        <a href="#">VOD</a>
-                        <a href="#">Žebříčky</a>
-                        <a href="#">Blu-ray</a>
-                        <a href="#">DVD</a>
-                        <a href="#">Zany</a>
-                    </nav>
+                <button class="account-btn">Můj účet</button>
+            </div>
+            <div class="header-bottom-section">
+                <nav>
+                    <a href="#">Novinky</a>
+                    <a href="#">Televize</a>
+                    <a href="#">Kino</a>
+                    <a href="#">VOD</a>
+                    <a href="#">Žebříčky</a>
+                    <a href="#">Blu-ray</a>
+                    <a href="#">DVD</a>
+                    <a href="#">Zany</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section class="trailer">
+                <h2>Nové trailery a rozhovory</h2>
+                <div class="trailer-container">
+                    <img src="img/content/interstellar.avif" alt="Interstellar">
+                    <p>Interstellar (2014)</p>
                 </div>
-            </header>
-            <main>
-                <section class="trailers">
-                    <h2>Nové trailery a rozhovory</h2>
-                    <div class="trailer-container">
-                        <img src="img/content/interstellar.avif" alt="Yellowstone">
-                        <p>Interstellar (2014)</p>
+            </section>
+
+            <section class="promo">
+                <div class="promo-section">
+                    <h3>Nenechte si ujít na
+                        <a href="https://www.iprima.cz" style="color: #BA0305">
+                            prima+
+                        </a>
+                    </h3>
+                    <div class="promo-items">
+                        <img src="img/content/honeymoon.jpg" alt="Homefront">
+                        <img src="img/content/ve_sluzbe.jpg" alt="Ve službě">
+                        <img src="img/content/zradci.jpg" alt="Zrádci">
+                        <img src="img/content/bez_litosti.jpg" alt="Bez lítosti">
+                        <img src="img/content/sedm.jpg" alt="Sedm schodů k moci">
+                        <img src="img/content/teambuilding.jpg" alt="Jedeme na teambuilding">
                     </div>
-                </section>
-        
-                <section class="promo">
-                    <div class="promo-section">
-                        <h3>Nenechte si ujít na prima+</h3>
-                        <div class="promo-items">
-                            <img src="img/content/bez_litosti.jpg" alt="Bez lítosti">
-                            <img src="img/content/honeymoon.jpg" alt="Homefront">
-                            <img src="img/content/ve_sluzbe.jpg" alt="Ve službě">
-                        </div>
+                </div>
+                <div class="promo-section">
+                    <h3>Exkluzivně na
+                        <a href="https://www.disneyplus.com/en-cz" style="color: #BA0305">
+                            Disney+
+                        </a>
+                    </h3>
+                    <div class="promo-items">
+                        <img src="img/content/batman.jpg" alt="Batman">
+                        <img src="img/content/joker.jpg" alt="Joker">
+                        <img src="img/content/spiderman.jpg" alt="Spiderman">
+                        <img src="img/content/tlou.jpg" alt="The Last Of Us">
+                        <img src="img/content/v-hlave.jpg" alt="V Hlavě 2">
+                        <img src="img/content/tenet.jpg" alt="Tenet">
                     </div>
-                    <div class="promo-section">
-                        <h3>Exkluzivně na Disney+</h3>
-                        <div class="promo-items">
-                            <img src="img/content/disney1.jpg" alt="Film na Disney+">
-                            <img src="img/content/disney2.jpg" alt="Film na Disney+">
-                        </div>
-                    </div>
-                </section>
-        
-                <section class="news">
-                    <h2>Novinky</h2>
-                    <article>
-                        <h3>Říjnové VOD tipy</h3>
-                        <p>Blíží se nám přelom října a listopadu...</p>
-                    </article>
-                    <article>
-                        <h3>Johnny Depp a Penélope Cruz opět spolu</h3>
-                        <p>Johnny Depp se vrací do Hollywoodu...</p>
-                    </article>
-                </section>
-        
-                <section class="tv-tips">
-                    <h2>TV tipy dne - čtvrtek</h2>
-                    <ul>
-                        <li>Kokain (2001) - Nova Cinema 00:40 - 03:00</li>
-                        <li>Čistá duše (2001) - Prima MAX 10:00</li>
-                    </ul>
-                </section>
-            </main>
-            <footer>
-                <p>&copy; 2023 ČSFD</p>
-            </footer>
-        </div>
+                </div>
+            </section>
+
+            <section class="news">
+                <h2>Novinky</h2>
+                <article>
+                    <h3>Říjnové VOD tipy</h3>
+                    <p>Blíží se nám přelom října a listopadu...</p>
+                </article>
+                <article>
+                    <h3>Johnny Depp a Penélope Cruz opět spolu</h3>
+                    <p>Johnny Depp se vrací do Hollywoodu...</p>
+                </article>
+            </section>
+
+            <section class="tv-tips">
+                <h2>TV tipy dne - čtvrtek</h2>
+                <ul>
+                    <li>Kokain (2001) - Nova Cinema 00:40 - 03:00</li>
+                    <li>Čistá duše (2001) - Prima MAX 10:00</li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 ČSFD</p>
+        </footer>
     </div>
+</div>
 </body>
 </html>
