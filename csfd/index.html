@@ -7,76 +7,81 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <img src="img\icons\csfd-logo.svg" alt="ČSFD logo" class="logo">
-            <div class="search-field">
-                <input type="text" placeholder="Vyhledávání">
-                <button class="search-btn">
-                    <img src="img\icons\search_icon.webp" alt="Vyhledávání" class="search-icon">
-                </button>
-            </div>            
-            
-            <nav>
-                <a href="#">Novinky</a>
-                <a href="#">Televize</a>
-                <a href="#">Kino</a>
-                <a href="#">VOD</a>
-                <a href="#">Žebříčky</a>
-                <a href="#">Blu-ray</a>
-                <a href="#">DVD</a>
-                <a href="#">Zany</a>
-            </nav>
-            <button>Můj účet</button>
+    <div class="page-background"> <!-- Pozadí s reklamou -->
+        <div class="content-container"> <!-- Hlavní obsahový blok -->
+            <header>
+                <div class="header-container">
+                    <img src="img/icons/csfd-logo.svg" alt="ČSFD logo" class="logo">
+                    <div class="search-field">
+                        <input type="text" placeholder="Vyhledávání">
+                        <button class="search-btn">
+                            <img src="img/icons/search_icon.webp" alt="Vyhledávání" class="search-icon">
+                        </button>
+                    </div>
+                    <nav>
+                        <a href="#">Novinky</a>
+                        <a href="#">Televize</a>
+                        <a href="#">Kino</a>
+                        <a href="#">VOD</a>
+                        <a href="#">Žebříčky</a>
+                        <a href="#">Blu-ray</a>
+                        <a href="#">DVD</a>
+                        <a href="#">Zany</a>
+                    </nav>
+                    <button class="account-btn">Můj účet</button>
+                </div>
+            </header>
+            <main>
+                <section class="trailers">
+                    <h2>Nové trailery a rozhovory</h2>
+                    <div class="trailer-container">
+                        <img src="img/content/interstellar.avif" alt="Yellowstone">
+                        <p>Interstellar (2014)</p>
+                    </div>
+                </section>
+        
+                <section class="promo">
+                    <div class="promo-section">
+                        <h3>Nenechte si ujít na prima+</h3>
+                        <div class="promo-items">
+                            <img src="img/content/bez_litosti.jpg" alt="Bez lítosti">
+                            <img src="img/content/honeymoon.jpg" alt="Homefront">
+                            <img src="img/content/ve_sluzbe.jpg" alt="Ve službě">
+                        </div>
+                    </div>
+                    <div class="promo-section">
+                        <h3>Exkluzivně na Disney+</h3>
+                        <div class="promo-items">
+                            <img src="img/content/disney1.jpg" alt="Film na Disney+">
+                            <img src="img/content/disney2.jpg" alt="Film na Disney+">
+                        </div>
+                    </div>
+                </section>
+        
+                <section class="news">
+                    <h2>Novinky</h2>
+                    <article>
+                        <h3>Říjnové VOD tipy</h3>
+                        <p>Blíží se nám přelom října a listopadu...</p>
+                    </article>
+                    <article>
+                        <h3>Johnny Depp a Penélope Cruz opět spolu</h3>
+                        <p>Johnny Depp se vrací do Hollywoodu...</p>
+                    </article>
+                </section>
+        
+                <section class="tv-tips">
+                    <h2>TV tipy dne - čtvrtek</h2>
+                    <ul>
+                        <li>Kokain (2001) - Nova Cinema 00:40 - 03:00</li>
+                        <li>Čistá duše (2001) - Prima MAX 10:00</li>
+                    </ul>
+                </section>
+            </main>
+            <footer>
+                <p>&copy; 2023 ČSFD</p>
+            </footer>
         </div>
-    </header>
-
-    <main>
-        <section class="trailers">
-            <h2>Nové trailery a rozhovory</h2>
-            <div class="trailer-container">
-                <img src="img\content\interstellar.avif" alt="Yellowstone">
-                <p>interstellar (2014)</p>
-            </div>
-        </section>
-
-        <section class="promo">
-            <div class="promo-section">
-                <h3>Nenechte si ujít na prima+</h3>
-                <div class="promo-items">
-                    <img src="img\content\bez_litosti.jpg" alt="Bez lítosti">
-                    <img src="img\content\honeymoon.jpg" alt="Homefront">
-                    <img src="img\content\ve_sluzbe.jpg" alt="Ve službě">
-                </div>
-            </div>
-            <div class="promo-section">
-                <h3>Exkluzivně na Disney+</h3>
-                <div class="promo-items">
-                    <img src="disney1.jpg" alt="Film na Disney+">
-                    <img src="disney2.jpg" alt="Film na Disney+">
-                </div>
-            </div>
-        </section>
-
-        <section class="news">
-            <h2>Novinky</h2>
-            <article>
-                <h3>Říjnové VOD tipy</h3>
-                <p>Blíží se nám přelom října a listopadu...</p>
-            </article>
-            <article>
-                <h3>Johnny Depp a Penélope Cruz opět spolu</h3>
-                <p>Johnny Depp se vrací do Hollywoodu...</p>
-            </article>
-        </section>
-
-        <section class="tv-tips">
-            <h2>TV tipy dne - čtvrtek</h2>
-            <ul>
-                <li>Kokain (2001) - Nova Cinema 00:40 - 03:00</li>
-                <li>Čistá duše (2001) - Prima MAX 10:00</li>
-            </ul>
-        </section>
-    </main>
+    </div>
 </body>
 </html>

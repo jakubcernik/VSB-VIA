@@ -2,48 +2,112 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
+body, html {
+    height: 100%;
+    background-color: #f0f0f0;
+}
+
+/* Pozadí s reklamou */
+.page-background {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px; /* Odsazení shora */
+    background-image: url('img/content/ad-background.jpg'); /* Obrázek pro reklamu */
+    background-size: fit;
+    background-position: center;
+    min-height: 100vh;
+}
+
+/* Hlavní obsahový blok */
+.content-container {
+    width: 50%; /* Šířka hlavního obsahu */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+/* Hlavička */
 header {
-    background-color: #b71c1c;
+    background-color: #BA0305;
     color: white;
-    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 50px; /* Nastavíme výšku headeru pro lepší přehled */
 }
 
 .logo {
-    max-height: 100%; /* Maximální výška přizpůsobená výšce headeru */
-    width: auto; /* Automatická šířka pro zachování poměru stran */
-    height: 100%; /* Výška loga přizpůsobená výšce headeru */
+    max-height: 50px;
+    width: auto;
 }
 
-.header-container input {
-    padding: 5px;
-}
-
+/* Stylování navigace */
 .header-container nav a {
     margin: 0 10px;
     color: white;
     text-decoration: none;
 }
 
+/* Tlačítko Můj účet */
 .header-container button {
     background-color: white;
-    color: #b71c1c;
-    padding: 5px 10px;
+    color: #BA0305;
     border: none;
     cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
 }
 
+/* Vyhledávací pole */
+.search-field {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 40px;
+}
+
+.search-field input[type="text"] {
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    outline: none;
+    flex: 1;
+}
+
+.search-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-btn
+{
+    margin-right: 10px;
+}
+
+.search-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Sekce obsahu */
 main {
-    padding: 20px;
+    padding: 20px 0;
 }
 
 .trailers, .promo, .news, .tv-tips {
@@ -70,18 +134,12 @@ main {
 
 .tv-tips li {
     margin: 5px 0;
-} 
-
-/* Responzivní úpravy pro logo */
-@media (max-width: 768px) {
-    .logo {
-        height: 25px;
-    }
 }
 
-@media (max-width: 480px) {
-    .logo {
-        height: 20px;
+/* Responzivní úpravy */
+@media (max-width: 768px) {
+    .content-container {
+        width: 70%; /* Přizpůsobení šířky pro tablety */
     }
 
     .header-container nav {
@@ -89,36 +147,21 @@ main {
     }
 }
 
-.search-field {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden;
+@media (max-width: 480px) {
+    .content-container {
+        width: 90%; /* Přizpůsobení šířky pro mobilní zařízení */
+    }
+
+    .logo {
+        max-height: 30px; /* Menší logo pro malé obrazovky */
+    }
 }
 
-.search-field input[type="text"] {
-    border: none;
-    padding: 8px;
-    font-size: 16px;
-    outline: none;
-}
-
-.search-btn {
-    background-color: transparent;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.search-icon {
-    width: 18px; /* Přizpůsob velikosti ikony dle potřeby */
-    height: 18px;
-}
-
-.logo
-{
-    max-height: fit-content;
+/* Stylování patičky */
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
 }
