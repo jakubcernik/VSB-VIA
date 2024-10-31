@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #b71c1c;
+    color: white;
+    padding: 10px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 30px; /* Výchozí velikost loga */
+    max-height: 40px; /* Maximální výška loga */
+    margin-right: 20px;
+}
+
+.header-container input {
+    padding: 5px;
+}
+
+.header-container nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.header-container button {
+    background-color: white;
+    color: #b71c1c;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+main {
+    padding: 20px;
+}
+
+.trailers, .promo, .news, .tv-tips {
+    margin-bottom: 20px;
+}
+
+.trailer-container img {
+    width: 100%;
+    height: auto;
+}
+
+.promo-section {
+    margin-bottom: 20px;
+}
+
+.promo-items img {
+    width: 80px;
+    margin: 0 5px;
+}
+
+.tv-tips ul {
+    list-style: none;
+}
+
+.tv-tips li {
+    margin: 5px 0;
+} 
+
+/* Responzivní úpravy pro logo */
+@media (max-width: 768px) {
+    .logo {
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        height: 20px;
+    }
+
+    .header-container nav {
+        display: none; /* Skrytí navigace na menších obrazovkách */
+    }
+}
