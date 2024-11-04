@@ -154,10 +154,28 @@ main {
     margin-bottom: 20px;
 }
 
-.trailer-container img {
-    width: 100%;
-    height: auto;
+.slider {
+    overflow: hidden;
+    width: 100%; /* Nastavte požadovanou šířku slideru */
+    max-width: 600px; /* Přizpůsobte podle potřeby */
+    margin: 0 auto;
+    position: relative;
 }
+
+.slides {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.slides img {
+    width: 100%; /* Obrázek se přizpůsobí šířce slideru */
+    height: 400px; /* Nastavte pevnou výšku pro všechny obrázky */
+    object-fit: cover; /* Zachová poměr stran a přizpůsobí obrázek v rámci rozměrů */
+    flex-shrink: 0;
+}
+
+
+
 
 .promo {
     display: flex;
