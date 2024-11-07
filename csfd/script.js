@@ -1,10 +1,22 @@
-const slides = document.querySelector('.slides');
-const images = slides.querySelectorAll('img');
+const slides = document.querySelectorAll('.slide');
 let index = 0;
 
 function showNextImage() {
-    index = (index + 1) % images.length;
-    slides.style.transform = `translateX(${-index * 100}%)`;
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
 }
 
-setInterval(showNextImage, 5000); // Změna každé 3 sekundy
+function showPrevImage() {
+    slides[index].classList.remove('active');
+    index = (index - 1 + slides.length) % slides.length;
+    slides[index].classList.add('active');
+}
+
+document.querySelector('.next-btn').addEventListener('click', showNextImage);
+document.querySelector('.prev-btn').addEventListener('click', showPrevImage);
+
+setInterval(showNextImage, 10000); // Change every 10 seconds
+
+// Initialize the first slide as active
+slides[index].classList.add('active');
