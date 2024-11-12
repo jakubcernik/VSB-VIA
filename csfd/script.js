@@ -32,6 +32,10 @@ document.querySelector('.account-btn').addEventListener('mouseleave', function()
     document.querySelector('.dropdown-menu').style.display = 'none';
 });
 
+document.querySelector('.filter-btn').addEventListener('click', function() {
+    window.location.href = 'filter.html';
+});
+
 interval = setInterval(showNextImage, 10000); // Change every 10 seconds
 
 // Initialize the first slide as active
