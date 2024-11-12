@@ -31,16 +31,11 @@ body, html {
     height: 100%;
     z-index: 1; /* Zajišťuje, že je pod obsahem */
 }
+
 .content-container {
     position: relative;
     z-index: 2; /* Zajišťuje, že je nad odkazem */
-}
-
-
-
-/* Hlavní obsahový blok */
-.content-container {
-    width: 50%; /* Šířka hlavního obsahu */
+    width: 55%; /* Šířka hlavního obsahu */
     background-color: white;
     padding: 5px;
     border-radius: 4px;
@@ -62,18 +57,23 @@ header {
     border-top-right-radius: 5px;
 }
 
-.header-bottom-section{
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-bottom-section {
     background-color: rgb(211, 211, 211);
 }
 
-.header-bottom-section nav{
+.header-bottom-section nav {
     padding-left: 15px;
     padding-top: 8px;
     padding-bottom: 8px;
     color: black;
 }
 
-.header-bottom-section nav a{
+.header-bottom-section nav a {
     padding-right: 20px;
     color: black;
     text-decoration: none;
@@ -81,7 +81,7 @@ header {
     font-size: small;
 }
 
-.header-bottom-section nav a:hover{
+.header-bottom-section nav a:hover {
     color: #BA0305;
 }
 
@@ -101,16 +101,16 @@ header {
 .search-field {
     display: flex;
     align-items: center;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
     overflow: hidden;
-    height: 40px; /* Nastavíme pevnou výšku pro vyhledávací pole */
+    height: 30px; /* Nastavíme pevnou výšku pro vyhledávací pole */
 }
 
 .search-field input[type="text"] {
     border: none;
     padding: 8px;
-    font-size: 16px;
+    font-size: 14px;
     outline: none;
     flex: 1;
     height: 100%; /* Přizpůsobí výšku rodičovskému kontejneru */
@@ -120,16 +120,15 @@ header {
 .search-btn {
     background-color: rgb(235, 235, 235);
     border: none;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
     cursor: pointer;
-    height: 100%; /* Zajistí stejnou výšku jako rodič */
+    height: 30px; /* Zajistí stejnou výšku jako rodič */
     width: 40px; /* Nastaví šířku tlačítka na čtvercový tvar */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0; /* Odstraní vnitřní padding tlačítka */
-    border-top-right-radius: 5px;
 }
 
 .search-btn:hover {
@@ -146,6 +145,7 @@ header {
     position: relative;
     align-items: center;
     height: 100%;
+    margin-left: auto
 }
 
 .dropdown-menu {
@@ -172,7 +172,7 @@ header {
     background-color: #f1f1f1;
 }
 
-.dropdown-menu .control-panel{
+.dropdown-menu .control-panel {
     display: block;
     padding: 10px;
     color: black;
@@ -227,10 +227,6 @@ main {
     opacity: 1;
 }
 
-.slide.active {
-    opacity: 1;
-}
-
 .slider {
     overflow: hidden;
     width: 100%;
@@ -261,6 +257,11 @@ main {
     right: 10px;
 }
 
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgb(235, 235, 235);
+    color: #333333;
+}
+
 .description {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
@@ -271,56 +272,33 @@ main {
     text-align: center;
 }
 
-.prev-btn, .next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 3;
-}
-
-.prev-btn:hover, .next-btn:hover {
-    background-color:rgb(235,235,235);
-    color: #333333;
-}
-
-.prev-btn {
-    left: 10px;
-}
-
-.next-btn {
-    right: 10px;
-}
-
 .slides img {
     width: 100%; /* Obrázek se přizpůsobí šířce slideru */
     height: 400px; /* Nastavte pevnou výšku pro všechny obrázky */
     object-fit: cover; /* Zachová poměr stran a přizpůsobí obrázek v rámci rozměrů */
     flex-shrink: 0;
 }
- h2 {
-     background-color: rgb(211, 211, 211);
-     padding: 8px;
-     margin: 0 0 0;
-     border-top-left-radius: 4px;
-     border-top-right-radius: 4px;
-     text-align: left;
-     font-weight: normal;
+
+h2 {
+    background-color: rgb(211, 211, 211);
+    padding: 8px;
+    margin: 0 0 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    text-align: left;
+    font-weight: normal;
 }
 
 .promo {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px; /* Mezera mezi dvěma promo boxy */
     width: 100%; /* Zajišťuje, že promo sekce zapadne do šířky main */
 }
 
 .promo-section {
     background-color: #f7f7f7;
-    flex: 1 1 calc(50%); /* Šířka 50 % mínus polovina mezery */
+    flex: 1 1 calc(50% - 10px); /* Šířka 50 % mínus polovina mezery */
     box-sizing: border-box; /* Zahrnuje padding do šířky */
     border-radius: 4px;
     border: solid 1px #e3e3e3;
@@ -339,13 +317,38 @@ main {
 .promo-items {
     display: flex;
     justify-content: center;
-    gap: 10px;
 }
 
 .promo-items img {
     width: 80px;
     height: auto;
     padding: 5px;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: #BA0305;
+    color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.filter-btn:hover {
+    color: white;
+}
+
+.filter-btn-img {
+    margin-right: 10px;
+    width: 20px; /* Adjust the size of the icon as needed */
+    height: auto;
+}
+
+.filter-btn-txt {
+    font-size: 14px;
 }
 
 /* Responzivní zobrazení promo sekcí pod sebou */
@@ -371,6 +374,12 @@ main {
 
     .header-top-section nav {
         display: none; /* Skrytí navigace na menších obrazovkách */
+    }
+}
+
+@media (max-width: 1065px) {
+    .filter-btn-txt {
+        display: none;
     }
 }
 
