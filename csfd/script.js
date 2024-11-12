@@ -21,6 +21,17 @@ function resetInterval() {
     interval = setInterval(showNextImage, 10000);
 }
 
+function updateDateTime() {
+    const now = new Date();
+    document.getElementById('datetime').textContent = now.toLocaleString();
+}
+
+// Call the function to update the date and time every second
+setInterval(updateDateTime, 1000);
+
+// Initial call to display the date and time immediately when the page loads
+updateDateTime();
+
 document.querySelector('.next-btn').addEventListener('click', showNextImage);
 document.querySelector('.prev-btn').addEventListener('click', showPrevImage);
 

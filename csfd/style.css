@@ -86,7 +86,7 @@ header {
     padding-right: 20px;
     color: black;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
     font-size: small;
 }
 
@@ -405,7 +405,21 @@ h2 {
 footer {
     text-align: center;
     background-color: #333;
-    color: white;
     padding: 10px;
     margin-top: 20px;
 }
+
+footer #datetime {
+    color: grey;
+    text-align: left;
+}
+
+footer #copy-info-footer{
+    color: white;
+}
+
+footer #copy-info-footer a{
+    color: #BA0305;
+    text-decoration: none;
+}
+
