@@ -209,14 +209,40 @@ header {
     height: 18px;
 }
 
-/* Sekce obsahu */
 main {
     padding: 20px 0; /* Pouze vertikální padding, aby se obsah vešel */
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.trailer, .promo, .news, .tv-tips {
+.trailer {
+    flex: 0 0 600px;
     margin-bottom: 20px;
+}
+
+.promo, .news, .tv-tips {
+    margin-bottom: 20px;
+}
+
+.small-blocks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    margin-left: 20px; /* Space between slider and small blocks */
+    margin-bottom: 35px;
+}
+
+.small-block {
+    height: 50%; /* Each block takes half of the remaining height */
+    background-color: #e0e0e0; /* Placeholder for block content */
+    margin-bottom: 10px; /* Space between the blocks */
+}
+
+.small-block:last-child {
+    margin-bottom: 0; /* Remove margin from the last block */
 }
 
 .slides {
@@ -240,10 +266,9 @@ main {
     overflow: hidden;
     width: 100%;
     max-width: 600px;
-    margin: 0;
+    margin-bottom: 15px;
     position: relative;
     float: left;
-    margin-bottom: 10px;
 }
 
 .prev-btn, .next-btn {
@@ -295,8 +320,12 @@ h2 {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     max-width: 600px;
+    max-height: 40px;
     text-align: left;
-    font-weight: normal;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .promo {
@@ -376,30 +405,54 @@ h2 {
     margin: 5px 0;
 }
 
-/* Responzivní úpravy */
-@media (max-width: 768px) {
+@media (max-width: 1065px) {
     .content-container {
-        width: 70%; /* Přizpůsobení šířky pro tablety */
+        width: 80% !important;
     }
 
     .header-top-section nav {
-        display: none; /* Skrytí navigace na menších obrazovkách */
-    }
-}
-
-@media (max-width: 1065px) {
-    .filter-btn-txt {
         display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .content-container {
-        width: 90%; /* Přizpůsobení šířky pro mobilní zařízení */
     }
 
     .logo {
         max-height: 30px; /* Menší logo pro malé obrazovky */
+    }
+}
+
+@media (max-width: 700px){
+    .content-container {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .header-top-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-left {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .filter-btn, .account-btn {
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-bottom-section {
+        margin-top: 80px; /* Adjust the margin as needed */
+    }
+
+    .search-field {
+        width: 70%;
     }
 }
 
