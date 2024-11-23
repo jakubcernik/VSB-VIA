@@ -16,6 +16,17 @@ function showPrevImage() {
     resetInterval();
 }
 
+// Add event listeners to Lightbox links
+slides.forEach((slide, idx) => {
+    const link = slide.querySelector('a');
+    link.addEventListener('click', (event) => {
+        if (idx !== index) {
+            event.preventDefault(); // Prevent Lightbox from opening wrong image
+        }
+    });
+});
+
+
 function resetInterval() {
     clearInterval(interval);
     interval = setInterval(showNextImage, 10000);
@@ -60,4 +71,6 @@ document.querySelector('.filter-btn').addEventListener('click', function() {
 });
 
 interval = setInterval(showNextImage, 10000); // Change every 10 seconds
+
+
 
