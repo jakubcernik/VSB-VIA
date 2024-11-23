@@ -191,6 +191,49 @@ header {
     text-decoration: none;
 }
 
+/* Submenu styl */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu span {
+    display: block;
+    cursor: pointer;
+    color: #007dbd;
+    font-weight: bold;
+}
+
+.dropdown-submenu .submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    min-width: 150px;
+}
+
+.dropdown-submenu:hover .submenu {
+    display: block;
+
+}
+
+.dropdown-submenu .submenu a {
+    display: block;
+    padding: 8px 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown-submenu .submenu a:hover {
+    background-color: #f1f1f1;
+    color: #BA0305;
+}
+
+
 .account-btn .icon {
     margin-right: 5px;
     width: 20px;
@@ -211,7 +254,7 @@ header {
     height: 18px;
 }
 
-main {
+.indexPage {
     padding: 20px 0; /* Pouze vertikální padding, aby se obsah vešel */
     width: 100%;
     display: flex;
@@ -534,34 +577,36 @@ footer #copy-info-footer a{
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .btn {
     background-color: #ba0305;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 5px 10px;
+    border-radius: 2px;
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .btn:hover {
     background-color: #900202;
 }
 
-.btn-reset {
-    background-color: #f0f0f0;
-    color: #333;
-}
-
 .btn-reset:hover {
-    background-color: #ddd;
+    background-color: #252525;
 }
 
-main h1 {
+.btn-reset {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+.filterPage h1 {
     font-weight: bold;
     font-size: x-large;
     text-align: center;
@@ -569,7 +614,13 @@ main h1 {
     margin-bottom: 20px;
 }
 
-label:hover, select:hover, input:hover {
+.filterPage {
+    padding: 20px 0; /* Pouze vertikální padding, aby se obsah vešel */
+    width: 100%;
+    display: block;
+}
+
+label:hover, select:hover {
     cursor: pointer;
     color: #900202;
 }
@@ -579,9 +630,57 @@ select {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 1px;
+    max-width: 100px;
 }
 
 label{
     padding: 2px;
     font-size: medium;
+}
+
+.filter-column input[type="text"]:focus{
+    border: 1px solid #900202;
+}
+
+.filter-column input[type="text"]{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+.filter-column p{
+    padding: 5px;
+}
+
+.form-actions{
+    border: 1px solid #ccc;
+    background-color: rgb(232, 232, 232);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
 }

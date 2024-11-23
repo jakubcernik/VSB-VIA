@@ -30,10 +30,26 @@
                         <img src="img/icons/account.png" alt="Icon" class="icon">
                         Můj účet
                     </button>
+                    <div class="dropdown-menu">
+                        <div class="control-panel">Ovládací panel</div>
+                        <a href="#" style="color: #007dbd">Přihlášení</a>
+                        <a href="#" style="color: #007dbd">Registrace</a>
+                        <a href="#" style="color: #007dbd">Zapomenuté heslo</a>
+                        <a href="#" style="color: #BA0305">Přidat film</a>
+                        <a href="#" style="color: #BA0305">Přidat tvůrce</a>
+                        <div class="dropdown-submenu">
+                            <a>Správa účtu</a>
+                            <div class="submenu">
+                                <a href="#">Změnit heslo</a>
+                                <a href="#">Správa profilu</a>
+                                <a href="#">Odhlásit se</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
-        <main>
+        <main class="filterPage">
             <h1>Podrobné vyhledávání</h1>
             <div class="search-form-container">
                 <h2>Zadej požadované filtry</h2>
@@ -47,12 +63,12 @@
                                 <label><input type="checkbox" name="type[]" value="serial"> seriál</label>
                                 <label><input type="checkbox" name="type[]" value="tv-film"> TV film</label>
                                 <label><input type="checkbox" name="type[]" value="porad"> pořad</label>
-                                <label><input type="checkbox" name="type[]" value="porad"> studentský film</label>
-                                <label><input type="checkbox" name="type[]" value="porad"> amatérský film</label>
-                                <label><input type="checkbox" name="type[]" value="porad"> divadelní záznam</label>
-                                <label><input type="checkbox" name="type[]" value="porad"> hudební videoklip</label>
-                                <label><input type="checkbox" name="type[]" value="porad"> koncert</label>
-                                <label><input type="checkbox" name="type[]" value="porad"> video kompilace</label>
+                                <label><input type="checkbox" name="type[]" value="student"> studentský film</label>
+                                <label><input type="checkbox" name="type[]" value="amater"> amatérský film</label>
+                                <label><input type="checkbox" name="type[]" value="divadlo"> divadelní záznam</label>
+                                <label><input type="checkbox" name="type[]" value="hudba"> hudební videoklip</label>
+                                <label><input type="checkbox" name="type[]" value="koncert"> koncert</label>
+                                <label><input type="checkbox" name="type[]" value="kompilace"> video kompilace</label>
 
 
                                 <br>
@@ -126,23 +142,60 @@
                                         <option value="atl">alespoň některé zvolené</option>
                                     </select>
                                 </label>
-                                    <label>
-                                        <select name="genre_include">
-                                            <option value="">-všechny-</option>
-                                            <option value="action">Akční</option>
-                                            <option value="comedy">Komedie</option>
-                                            <option value="drama">Drama</option>
-                                            <option value="horror">Horror</option>
-                                        </select>
-                                    </label>
-                                …ale neobsahující
+                                <label>
+                                   <select name="genre_include">
+                                       <option value="">-všechny-</option>
+                                       <option value="action">Akční</option>
+                                       <option value="comedy">Komedie</option>
+                                       <option value="drama">Drama</option>
+                                       <option value="horror">Horror</option>
+                                   </select>
+                                </label>
+                                <br>
+                                    <p>…ale neobsahující</p>
                                 <label>
                                     <select name="genre_exclude">
                                         <option value="">-všechny-</option>
                                         <option value="action">Akční</option>
+                                        <option value="comedy">Komedie</option>
+                                        <option value="drama">Drama</option>
+                                        <option value="horror">Horror</option>
                                     </select>
                                 </label>
                             </div>
+                                <br>
+                                <br>
+                                <div>
+                                    <h3>Původ obsahující</h3>
+                                    <label>
+                                        <select name="country_option">
+                                            <option value="min">minimálně všechny zvolené</option>
+                                            <option value="exc">přesně zvolené</option>
+                                            <option value="atl">alespoň některé zvolené</option>
+                                        </select>
+                                    </label>
+
+                                    <label>
+                                        <select name="country_include">
+                                            <option value="">-všechny-</option>
+                                            <option value="action">Anglie</option>
+                                            <option value="comedy">Francie</option>
+                                            <option value="drama">Česko</option>
+                                            <option value="horror">Polsko</option>
+                                        </select>
+                                    </label>
+                                    <br>
+                                    <p>…ale neobsahující</p>
+                                    <label>
+                                        <select name="country_exclude">
+                                            <option value="">-všechny-</option>
+                                            <option value="action">Anglie</option>
+                                            <option value="comedy">Francie</option>
+                                            <option value="drama">Česko</option>
+                                            <option value="horror">Polsko</option>
+                                        </select>
+                                    </label>
+                                </div>
                             </div>
 
                             <!-- Column 3 -->
@@ -150,21 +203,36 @@
                                 <h3>Doplňující filtry</h3>
                                 <label><input type="checkbox" name="additional[]" value="cinemas"> běží v kinech</label>
                                 <label><input type="checkbox" name="additional[]" value="vod"> k přehrání na VOD</label>
+                                <label><input type="checkbox" name="additional[]" value="tv"> poběží v TV</label>
+                                <label><input type="checkbox" name="additional[]" value="filmoteka"> ve filmotéce</label>
+                                <label><input type="checkbox" name="additional[]" value="wanted"> ve filmotéce prodej/sháňka</label>
+                                <label><input type="checkbox" name="additional[]" value="bluray"> ke koupi na Blu-ray</label>
+                                <label><input type="checkbox" name="additional[]" value="dvd"> ke koupi na DVD</label>
+                                <label><input type="checkbox" name="additional[]" value="reviewed"> s recenzemi</label>
+                                <label><input type="checkbox" name="additional[]" value="withGallery"> s galerií</label>
+                                <label><input type="checkbox" name="additional[]" value="withVideos"> s videi</label>
+                                <label><input type="checkbox" name="additional[]" value="awarded"> s oceněními</label>
+                                <label><input type="checkbox" name="additional[]" value="interesting"> se zajímavostmi</label>
+                                <p>Tagy</p>
+                                <label><input type="text" name="tags"></label>
                             </div>
 
                             <!-- Column 4 -->
                             <div class="filter-column">
                                 <h3>Osoby</h3>
-                                <label>Herci: <input type="text" name="actors"></label>
-                                <label>Režiséři: <input type="text" name="directors"></label>
-                                <label>Skladatelé: <input type="text" name="composers"></label>
+                                Herci:<label><input type="text" name="actors"></label>
+                                Režiséři:<label><input type="text" name="directors"></label>
+                                Skladatelé:<label><input type="text" name="composers"></label>
+                                Scenáristé:<label><input type="text" name="composers"></label>
+                                Autoři předlohy:<label><input type="text" name="composers"></label>
+                                Kameramani:<label><input type="text" name="composers"></label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" class="btn">Hledat</button>
-                        <button type="reset" class="btn btn-reset">Resetovat</button>
+                        <button type="submit" class="btn">HLEDAT</button>
+                        <button type="reset" class="btn btn-reset">RESETOVAT</button>
                     </div>
                 </form>
             </div>
@@ -174,6 +242,7 @@
                 Jedná se o studentský projekt vytvořen v rámci předmětu Vývoj Internetových Aplikací na VŠB TUO FEI.
                 Autorem je Jakub Černík. <br>Originál: <a href="https://www.csfd.cz/">ČSFD</a>
             </p>
+            <p id="datetime"></p>
         </footer>
     </div>
 </div>

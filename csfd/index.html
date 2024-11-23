@@ -37,8 +37,17 @@
                         <a href="#" style="color: #007dbd">Zapomenuté heslo</a>
                         <a href="#" style="color: #BA0305">Přidat film</a>
                         <a href="#" style="color: #BA0305">Přidat tvůrce</a>
+                        <div class="dropdown-submenu">
+                            <a>Správa účtu</a>
+                            <div class="submenu">
+                                <a href="#">Změnit heslo</a>
+                                <a href="#">Správa profilu</a>
+                                <a href="#">Odhlásit se</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
             <div class="header-bottom-section">
                 <nav>
@@ -57,26 +66,34 @@
                 </nav>
             </div>
         </header>
-        <main>
+        <main class="indexPage">
             <section class="trailer">
                 <h2>Nové trailery a rozhovory</h2>
                 <section class="slider">
                     <button class="prev-btn"><</button>
                     <div class="slides">
                         <div class="slide">
-                            <img src="img/content/godfather.webp" alt="The Godfather (1972)">
+                            <a href="#" class="open-modal" data-src="img/content/godfather.webp">
+                                <img src="img/content/godfather.webp" alt="The Godfather (1972)">
+                            </a>
                             <div class="description">Kmotr (1972)</div>
                         </div>
                         <div class="slide">
-                            <img src="img/content/django.jpg" alt="Django Unchained">
+                            <a href="#" class="open-modal" data-src="img/content/godfather.webp">
+                                <img src="img/content/django.jpg" alt="Django Unchained">
+                            </a>
                             <div class="description">Nespoutaný Django</div>
                         </div>
                         <div class="slide">
-                            <img src="img/content/interstellar.jpg" alt="Interstellar">
+                            <a href="#" class="open-modal" data-src="img/content/godfather.webp">
+                                <img src="img/content/interstellar.jpg" alt="Interstellar">
+                            </a>
                             <div class="description">Interstellar</div>
                         </div>
                         <div class="slide">
-                            <img src="img/content/typci.jpeg" alt="Arms and the Dudes">
+                            <a href="#" class="open-modal" data-src="img/content/godfather.webp">
+                                <img src="img/content/typci.jpeg" alt="Arms and the Dudes">
+                            </a>
                             <div class="description">Týpci a zbraně</div>
                         </div>
                     </div>
@@ -148,7 +165,10 @@
         </footer>
     </div>
 </div>
-</a>
 <script src="script.js"></script>
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
 </body>
 </html>

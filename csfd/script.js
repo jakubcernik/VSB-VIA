@@ -61,3 +61,28 @@ document.querySelector('.filter-btn').addEventListener('click', function() {
 
 interval = setInterval(showNextImage, 10000); // Change every 10 seconds
 
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeModal = document.querySelector('.modal .close');
+
+    document.querySelectorAll('.open-modal').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'block';
+            modalImage.src = e.target.closest('a').dataset.src;
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+
