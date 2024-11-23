@@ -32,16 +32,28 @@ setInterval(updateDateTime, 1000);
 // Initial call to display the date and time immediately when the page loads
 updateDateTime();
 
-document.querySelector('.next-btn').addEventListener('click', showNextImage);
-document.querySelector('.prev-btn').addEventListener('click', showPrevImage);
+const sliderSection = document.querySelector('.slider');
+if (sliderSection) {
+    document.querySelector('.next-btn').addEventListener('click', showNextImage);
+    document.querySelector('.prev-btn').addEventListener('click', showPrevImage);
+    // Initialize the first slide as active
+    slides[index].classList.add('active');
+}
 
-document.querySelector('.account-btn').addEventListener('mouseenter', function() {
-    document.querySelector('.dropdown-menu').style.display = 'block';
+
+const accountContainer = document.querySelector('.account-container');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+
+// Show the dropdown when hovering over the container
+accountContainer.addEventListener('mouseenter', () => {
+    dropdownMenu.style.display = 'block';
 });
 
-document.querySelector('.account-btn').addEventListener('mouseleave', function() {
-    document.querySelector('.dropdown-menu').style.display = 'none';
+// Hide the dropdown when the mouse leaves the container
+accountContainer.addEventListener('mouseleave', () => {
+    dropdownMenu.style.display = 'none';
 });
+
 
 document.querySelector('.filter-btn').addEventListener('click', function() {
     window.location.href = 'filter.html';
@@ -49,5 +61,3 @@ document.querySelector('.filter-btn').addEventListener('click', function() {
 
 interval = setInterval(showNextImage, 10000); // Change every 10 seconds
 
-// Initialize the first slide as active
-slides[index].classList.add('active');

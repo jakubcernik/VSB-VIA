@@ -144,6 +144,11 @@ header {
     background-color: #E8E8E8FF;
 }
 
+.account-container {
+    position: relative;
+    display: inline-block;
+}
+
 .account-btn {
     background-color: #BA0305;
     color: white;
@@ -151,26 +156,23 @@ header {
     cursor: pointer;
     padding: 5px 10px;
     display: flex;
-    position: relative;
     align-items: center;
     height: 100%;
-    margin-left: auto
 }
 
 .dropdown-menu {
     display: none; /* Hide the dropdown by default */
     position: absolute;
-    text-align: left;
     top: 100%; /* Position below the button */
-    left: 0;
+    right: 0;
     background-color: white;
     border: 1px solid #ccc;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    width: 200px; /* Adjust width as needed */
+    width: 200px;
 }
 
-.dropdown-menu a {
+.dropdown-menu a, .dropdown-menu .control-panel {
     display: block;
     padding: 10px;
     color: black;
@@ -190,8 +192,8 @@ header {
 }
 
 .account-btn .icon {
-    margin-right: 5px; /* Space between the icon and the text */
-    width: 20px; /* Adjust the size of the icon as needed */
+    margin-right: 5px;
+    width: 20px;
     height: auto;
 }
 
