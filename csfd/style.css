@@ -260,6 +260,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: stretch;
 }
 
 .trailer {
@@ -278,6 +279,7 @@ header {
     flex: 1;
     margin-left: 20px; /* Space between slider and small blocks */
     margin-bottom: 35px;
+    max-height: 440px;
 }
 
 .small-block {
@@ -305,6 +307,7 @@ header {
     padding-left: 10px;
     border-radius: 5px 5px 0 0;
     margin-bottom: 15px;
+    height: 50px;
 }
 
 .sponsor-text {
@@ -316,6 +319,7 @@ header {
     text-align: right;
     height: 100%;
     width: 50%;
+    padding-right: 1px;
 }
 
 .sponsor-logo {
@@ -334,14 +338,18 @@ header {
 }
 
 .sponsor-ad {
-    width: 100%;
-    margin: 15px 0;
+    width: 70%;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.sponsor-ad:hover {
+    transform: scale(1.1);
+}
+
 .sponsor-btn {
-    display: inline-block;
+    width: 40px;
+    align-items: center;
     background-color: #BA0305;
     color: white;
     text-decoration: none;
@@ -355,7 +363,33 @@ header {
     background-color: #900202;
 }
 
+.contest-block {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
 
+.contest-block h2 {
+    background-color: rgb(232, 232, 232);
+    padding: 8px;
+    margin: 0 0 10px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contest-content {
+    margin-top: 10px;
+}
+
+.contest-image {
+    width: 85%;
+    height: auto;
+    margin-top: 5px;
+}
 
 .slides {
     position: relative;
