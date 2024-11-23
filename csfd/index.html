@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ČSFD</title>
     <link rel="stylesheet" href="style.css">
+    <link href="lightbox.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="lightbox.js"></script>
 </head>
 <body>
 <div class="page-background"> <!-- Pozadí s reklamou -->
@@ -15,7 +18,9 @@
                 <div class="header-left">
                     <a href="index.html"><img src="img/icons/csfd-logo.svg" alt="ČSFD logo" class="logo"></a>
                     <div class="search-field">
-                        <input type="text" placeholder="Vyhledávání">
+                        <label>
+                            <input type="text" placeholder="Vyhledávání">
+                        </label>
                         <button class="search-btn">
                             <img src="img/icons/search_icon.webp" alt="Vyhledávání" class="search-icon">
                         </button>
@@ -73,25 +78,25 @@
                     <button class="prev-btn"><</button>
                     <div class="slides">
                         <div class="slide">
-                            <a href="#" class="open-modal" data-src="img/content/godfather.webp">
-                                <img src="img/content/godfather.webp" alt="The Godfather (1972)">
+                            <a href="img/content/godfather.jpg" data-lightbox="slider" data-title="Kmotr (1972)">
+                                <img src="img/content/godfather.jpg" alt="The Godfather (1972)">
                             </a>
                             <div class="description">Kmotr (1972)</div>
                         </div>
                         <div class="slide">
-                            <a href="#" class="open-modal" data-src="img/content/godfather.webp">
+                            <a href="img/content/django.jpg" data-lightbox="slider" data-title="Nespoutaný Django">
                                 <img src="img/content/django.jpg" alt="Django Unchained">
                             </a>
                             <div class="description">Nespoutaný Django</div>
                         </div>
                         <div class="slide">
-                            <a href="#" class="open-modal" data-src="img/content/godfather.webp">
+                            <a href="img/content/interstellar.jpg" data-lightbox="slider" data-title="Interstellar">
                                 <img src="img/content/interstellar.jpg" alt="Interstellar">
                             </a>
                             <div class="description">Interstellar</div>
                         </div>
                         <div class="slide">
-                            <a href="#" class="open-modal" data-src="img/content/godfather.webp">
+                            <a href="img/content/typci.jpeg" data-lightbox="slider" data-title="Týpci a zbraně">
                                 <img src="img/content/typci.jpeg" alt="Arms and the Dudes">
                             </a>
                             <div class="description">Týpci a zbraně</div>
@@ -166,9 +171,5 @@
     </div>
 </div>
 <script src="script.js"></script>
-<div id="imageModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImage">
-</div>
 </body>
 </html>

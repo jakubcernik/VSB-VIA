@@ -656,31 +656,8 @@ label{
     background-color: rgb(232, 232, 232);
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.modal-content {
-    display: block;
-    margin: auto;
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
+.lb-data .lb-caption {
+    color: white; /* Upravit barvu textu */
+    font-size: 16px;
+    text-align: center;
 }
