@@ -290,6 +290,73 @@ header {
     margin-bottom: 0; /* Remove margin from the last block */
 }
 
+.sponsor-block {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.sponsor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #BA0305;
+    color: white;
+    padding-left: 10px;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 15px;
+}
+
+.sponsor-text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sponsor-logo-container {
+    text-align: right;
+    height: 100%;
+    width: 50%;
+}
+
+.sponsor-logo {
+    width: 80px;
+    height: 100%;
+}
+
+.sponsor-content {
+    text-align: center;
+}
+
+.sponsor-content p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.sponsor-ad {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sponsor-btn {
+    display: inline-block;
+    background-color: #BA0305;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.sponsor-btn:hover {
+    background-color: #900202;
+}
+
+
+
 .slides {
     position: relative;
     height: 400px; /* Define the height of the slides container */
