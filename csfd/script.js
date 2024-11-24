@@ -1,76 +1,97 @@
-const slides = document.querySelectorAll('.slide');
-let index = 0;
-let interval;
+(() => {
+    // Slider Functionality
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+    let slideInterval;
 
-function showNextImage() {
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-    resetInterval();
-}
+    function initSlider() {
+        const sliderSection = document.querySelector('.slider');
+        if (!sliderSection) return;
 
-function showPrevImage() {
-    slides[index].classList.remove('active');
-    index = (index - 1 + slides.length) % slides.length;
-    slides[index].classList.add('active');
-    resetInterval();
-}
+        slides[currentIndex].classList.add('active');
 
-// Add event listeners to Lightbox links
-slides.forEach((slide, idx) => {
-    const link = slide.querySelector('a');
-    link.addEventListener('click', (event) => {
-        if (idx !== index) {
-            event.preventDefault(); // Prevent Lightbox from opening wrong image
+        document.querySelector('.next-btn').addEventListener('click', showNextImage);
+        document.querySelector('.prev-btn').addEventListener('click', showPrevImage);
+
+        slides.forEach((slide, idx) => {
+            const link = slide.querySelector('a');
+            link.addEventListener('click', (event) => {
+                if (idx !== currentIndex) {
+                    event.preventDefault(); // Zabraňuje otevření nesprávného obrázku v Lightboxu
+                }
+            });
+        });
+
+        slideInterval = setInterval(showNextImage, 10000);
+    }
+
+    function showNextImage() {
+        slides[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].classList.add('active');
+        resetInterval();
+    }
+
+    function showPrevImage() {
+        slides[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        slides[currentIndex].classList.add('active');
+        resetInterval();
+    }
+
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(showNextImage, 10000);
+    }
+
+    // Date and Time Updater
+    function initDateTime() {
+        const datetimeElement = document.getElementById('datetime');
+        if (!datetimeElement) return;
+
+        function updateDateTime() {
+            const now = new Date();
+            datetimeElement.textContent = now.toLocaleString();
         }
-    });
-});
 
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    }
 
-function resetInterval() {
-    clearInterval(interval);
-    interval = setInterval(showNextImage, 10000);
-}
+    // Account Dropdown Menu
+    function initAccountDropdown() {
+        const accountContainer = document.querySelector('.account-container');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
 
-function updateDateTime() {
-    const now = new Date();
-    document.getElementById('datetime').textContent = now.toLocaleString();
-}
+        if (accountContainer && dropdownMenu) {
+            accountContainer.addEventListener('mouseenter', () => {
+                dropdownMenu.style.display = 'block';
+            });
 
-// Call the function to update the date and time every second
-setInterval(updateDateTime, 1000);
+            accountContainer.addEventListener('mouseleave', () => {
+                dropdownMenu.style.display = 'none';
+            });
+        }
+    }
 
-// Initial call to display the date and time immediately when the page loads
-updateDateTime();
+    // Filter Button
+    function initFilterButton() {
+        const filterBtn = document.querySelector('.filter-btn');
+        if (filterBtn) {
+            filterBtn.addEventListener('click', () => {
+                window.location.href = 'filter.html';
+            });
+        }
+    }
 
-const sliderSection = document.querySelector('.slider');
-if (sliderSection) {
-    document.querySelector('.next-btn').addEventListener('click', showNextImage);
-    document.querySelector('.prev-btn').addEventListener('click', showPrevImage);
-    // Initialize the first slide as active
-    slides[index].classList.add('active');
-}
+    // Initialize All Functions
+    function init() {
+        initSlider();
+        initDateTime();
+        initAccountDropdown();
+        initFilterButton();
+    }
 
-
-const accountContainer = document.querySelector('.account-container');
-const dropdownMenu = document.querySelector('.dropdown-menu');
-
-// Show the dropdown when hovering over the container
-accountContainer.addEventListener('mouseenter', () => {
-    dropdownMenu.style.display = 'block';
-});
-
-// Hide the dropdown when the mouse leaves the container
-accountContainer.addEventListener('mouseleave', () => {
-    dropdownMenu.style.display = 'none';
-});
-
-
-document.querySelector('.filter-btn').addEventListener('click', function() {
-    window.location.href = 'filter.html';
-});
-
-interval = setInterval(showNextImage, 10000); // Change every 10 seconds
-
-
-
+    // Run Initialization
+    init();
+})();

@@ -13,16 +13,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: var(--font-family);
+    font-family: var(--font-family), sans-serif;
 }
 
 html {
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 100%;
 }
 
 body {
     height: 100%;
+    overflow-x: hidden;
     background-color: var(--background-color);
 }
 
@@ -34,6 +36,7 @@ body {
     padding-top: 100px;
     background: url('img/content/background.webp') center center / cover no-repeat fixed;
     min-height: 100vh;
+    position: relative;
 }
 
 .background-link {
@@ -68,12 +71,15 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
 }
 
 .header-left {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .header-bottom-section {
@@ -100,6 +106,7 @@ header {
 .logo {
     max-height: 50px;
     width: auto;
+    margin-right: 15px;
 }
 
 /* Tlačítko Můj účet */
@@ -116,6 +123,7 @@ header {
     border-radius: 2px;
     overflow: hidden;
     height: 30px;
+    margin-right: 15px;
 }
 
 .search-field input[type="text"] {
@@ -125,6 +133,7 @@ header {
     outline: none;
     flex: 1;
     height: 100%;
+    min-width: 150px;
 }
 
 .search-btn {
@@ -190,6 +199,10 @@ header {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     width: 200px;
+}
+
+.account-container:hover .dropdown-menu {
+    display: block;
 }
 
 .dropdown-menu a,
@@ -596,6 +609,69 @@ header {
     }
 }
 
+@media (max-width: 1200px) {
+    .content-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-field {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .filter-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-top-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-left {
+        width: 100%;
+    }
+
+    .account-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        max-height: 40px;
+    }
+
+    .search-field input[type="text"] {
+        min-width: 100px;
+    }
+
+    .filter-btn,
+    .account-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -715,6 +791,7 @@ label {
 .filter-column input[type="text"] {
     background-color: var(--background-color);
     border: 1px solid #ccc;
+    padding: 4px;
 }
 
 .filter-column input[type="text"]:focus {
