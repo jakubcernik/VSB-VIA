@@ -663,13 +663,17 @@ h4:hover{
     }
 
     .promo-section {
-        width: 100%; /* Make each section full-width */
+        flex: unset;
     }
 
     .small-blocks {
         display: flex;
         flex-direction: column; /* Stack small blocks */
         gap: 20px;
+    }
+
+    .trailer{
+        max-width: fit-content;
     }
 }
 
@@ -721,12 +725,13 @@ h4:hover{
         text-align: center;
     }
 
-    .header-bottom-section {
-        margin-top: 80px;
-    }
 
     .search-field {
         width: 70%;
+    }
+
+    .header-bottom-section nav{
+        width: 100%;
     }
 }
 
