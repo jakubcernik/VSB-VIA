@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Quiz App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Quiz App</h1>
+    <div class="category-buttons">
+        <button class="category-button active" data-category="general">General</button>
+        <button class="category-button" data-category="games">Games</button>
+        <button class="category-button" data-category="history">History</button>
+        <button class="category-button" data-category="computers">Computers</button>
+    </div>
+    <div class="difficulty-buttons">
+        <button class="difficulty-button active" data-difficulty="easy">Easy</button>
+        <button class="difficulty-button" data-difficulty="medium">Medium</button>
+        <button class="difficulty-button" data-difficulty="hard">Hard</button>
+    </div>
+    <button id="start-quiz" class="start-button">Start Quiz</button>
+</div>
+
+
+<!-- Modal -->
+<div id="quizModal" class="modal-overlay">
+    <div class="modal">
+        <div class="question"></div>
+        <div class="answer-buttons">
+            <button class="answer-button" data-answer="True">True</button>
+            <button class="answer-button" data-answer="False">False</button>
+        </div>
+        <div class="modal-footer">
+            <button id="previous-question">Previous</button>
+            <button id="next-question">Next</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</body>
+</html>
