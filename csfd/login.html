@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ČSFD</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="lightbox.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="lightbox.js"></script>
+</head>
+<body>
+<div class="page-background"> <!-- Pozadí s reklamou -->
+    <a href="https://www.alza.cz/" class="background-link"></a>
+    <main class="content-container"> <!-- Hlavní obsahový blok -->
+        <a href="projekce.html"><h4>ČSFD projekce <i>Gladiátor 2</i> <b>></b></h4></a>
+        <header>
+            <div class="header-top-section">
+                <div class="header-left">
+                    <a href="index.html"><img src="img/icons/csfd-logo.svg" alt="ČSFD logo" class="logo"></a>
+                    <div class="search-field">
+                        <label>
+                            <input type="text" placeholder="Vyhledávání">
+                        </label>
+                        <button class="search-btn">
+                            <img src="img/icons/search_icon.webp" alt="Vyhledávání" class="search-icon">
+                        </button>
+                    </div>
+                    <button class="filter-btn" onclick="location.href='filter.html'">
+                        <img src="img/icons/filter.webp" alt="Icon" class="filter-btn-img">
+                        <span class="filter-btn-txt">Podrobné vyhledávání</span>
+                    </button>
+                </div>
+                <a href="login.html">
+                <div class="account-container">
+                    <button class="account-btn">
+                        <img src="img/icons/account.png" alt="Icon" class="icon">
+                        Můj účet
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="control-panel">Ovládací panel</div>
+                        <a href="login.html" style="color: #007dbd">Přihlášení</a>
+                        <a href="notfound.html" style="color: #007dbd">Registrace</a>
+                        <a href="notfound.html" style="color: #007dbd">Zapomenuté heslo</a>
+                        <a href="notfound.html" style="color: #BA0305">Přidat film</a>
+                        <a href="notfound.html" style="color: #BA0305">Přidat tvůrce</a>
+                        <div class="dropdown-submenu">
+                            <a>Správa účtu</a>
+                            <div class="submenu">
+                                <a href="notfound.html">Změnit heslo</a>
+                                <a href="notfound.html">Správa profilu</a>
+                                <a href="notfound.html">Odhlásit se</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <div class="header-bottom-section">
+                <nav>
+                    <a href="notfound.html">Novinky</a>
+                    <a href="notfound.html">Televize</a>
+                    <a href="notfound.html">Kino</a>
+                    <a href="notfound.html">VOD</a>
+                    <a href="notfound.html">Žebříčky</a>
+                    <a href="notfound.html">Blu-ray</a>
+                    <a href="notfound.html">DVD</a>
+                    <a href="notfound.html">Žánry</a>
+                    <a href="notfound.html">Ocenění</a>
+                    <a href="notfound.html">Uživatelé</a>
+                    <a href="notfound.html">Diskuze</a>
+                    <a href="notfound.html">Shop</a>
+                </nav>
+            </div>
+        </header>
+        <div class="loginPage">
+            <div class="login-container">
+                <!-- Levý blok: Účet uživatele -->
+                <div class="user-account">
+                    <h2>Účet uživatele ČSFD</h2>
+                    <form action="#" method="post" class="login-form">
+                        <label for="username">E-mail:</label>
+                        <input type="email" id="username" name="username" placeholder="Zadej svou přezdívku." required>
+                        <label for="password">Heslo:</label>
+                        <input type="password" id="password" name="password" placeholder="Zadej heslo." required>
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember-me" name="remember-me">
+                            <label for="remember-me">trvalé přihlášení</label>
+                            <span class="tooltip" aria-label="Tooltip s nápovědou">?</span>
+                        </div>
+                        <button type="submit" class="submit-btn">PŘIHLÁSIT SE</button>
+                        <div class="password-reset">
+                            <a href="#">Zapomněl jsi své heslo?</a> Nech si <a href="#">poslat nové</a>.
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Pravý blok: Přihlášení přes aplikace -->
+                <div class="app-login">
+                    <h2>Přihlášení přes aplikaci</h2>
+                    <button class="login-btn facebook">Přihlásit se přes Facebook</button>
+                    <button class="login-btn google">Přihlásit se přes Google</button>
+                    <button class="login-btn apple">Přihlásit se přes Apple</button>
+                    <button class="login-btn mojeid">Přihlásit se přes mojeID</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p id="copy-info-footer">
+                Jedná se o studentský projekt vytvořen v rámci předmětu Vývoj Internetových Aplikací na VŠB TUO FEI.
+                Autorem je Jakub Černík. <br>Originál: <a href="https://www.csfd.cz/">ČSFD</a>
+            </p>
+            <p id="datetime"></p>
+        </footer>
+    </main> <!-- Uzavírá hlavní obsahový blok -->
+</div> <!-- Uzavírá page-background -->
+<script src="script.js"></script>
+</body>
+</html>

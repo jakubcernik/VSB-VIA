@@ -2,7 +2,7 @@
 :root {
     --main-color: #BA0305;
     --hover-color: #900202;
-    --light-gray: #E8E8E8;
+    --light-gray: #e6e2e2;
     --dark-gray: #333333;
     --background-color: #f0f0f0;
     --font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -17,14 +17,15 @@
 }
 
 html {
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-y: hidden; /* Skryje vertikální scrollbar */
+    overflow-x: hidden; /* Skryje horizontální scrollbar */
     height: 100%;
 }
 
 body {
     height: 100%;
     overflow-x: hidden;
+    overflow-y: scroll; /* Zachová možnost scrollování obsahu */
     background-color: var(--background-color);
 }
 
@@ -95,8 +96,28 @@ header {
     margin-right: 20px;
     color: black;
     text-decoration: none;
-    font-weight: normal;
+    font-weight: bold;
     font-size: small;
+    transition: color 0.3s ease;
+}
+
+h4{
+    text-decoration: none;
+    font-weight: normal;
+    font-size: medium;
+    text-align: center;
+    padding: 5px;
+    color: var(--main-color);
+    background-color: var(--light-gray);
+}
+
+a{
+    text-decoration: none;
+}
+
+h4:hover{
+    color: black;
+    cursor: pointer;
 }
 
 .header-bottom-section nav a:hover {
@@ -161,6 +182,7 @@ header {
 .account-container {
     position: relative;
     display: inline-block;
+    transition: display 0.3s ease;
 }
 
 .account-btn {
@@ -199,6 +221,7 @@ header {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     width: 200px;
+    transition: background-color 0.3s ease;
 }
 
 .account-container:hover .dropdown-menu {
@@ -211,6 +234,7 @@ header {
     padding: 10px;
     color: black;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown-menu a:hover {
@@ -255,6 +279,7 @@ header {
     text-decoration: none;
     color: #333;
     font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown-submenu .submenu a:hover {
@@ -435,10 +460,12 @@ header {
 
 .prev-btn {
     left: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .next-btn {
     right: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .prev-btn:hover,
@@ -466,6 +493,7 @@ header {
 
 /* Nadpisy */
 .search-form-container h2,
+.login-form-container h2,
 .trailer h2 {
     background-color: var(--light-gray);
     padding: 8px;
@@ -497,10 +525,90 @@ header {
     border: solid 1px #e3e3e3;
 }
 
+.projectionPage h1 {
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+    width: 100%;
+    margin: 20px;
+}
+
+.projection-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start; /* Allow children to have independent heights */
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+.projection-section {
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: solid 1px #e3e3e3;
+
+    width: calc(50% - 10px); /* Keep the width consistent */
+}
+
+
+.kino {
+    padding: 2px;
+    padding-left: 10px;
+    background-color: #f3efef;
+    font-weight: normal;
+    font-size: small;
+}
+
+.projection-section p {
+    padding: 10px;
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.redHighlight {
+    color: var(--main-color);
+}
+
+.projection-section img {
+    width: 35%;
+    height: auto;
+    margin: 20px;
+    float: left;
+}
+
+.projection-section h3 {
+    background-color: var(--light-gray);
+    padding: 8px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.projection-section .login-btn {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 20%;
+    margin-left: 10px;
+}
+
+.projection-container h5 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    margin: 20px;
+}
+
 .promo-section h3 {
     background-color: var(--light-gray);
     padding: 8px;
-    margin: 0 0 10px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     text-align: left;
@@ -529,6 +637,7 @@ header {
     cursor: pointer;
     border-radius: 4px;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .filter-btn:hover {
@@ -548,7 +657,19 @@ header {
 /* Responzivní promo sekce */
 @media (max-width: 768px) {
     .promo {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column; /* Stack promo sections */
+        gap: 20px; /* Add spacing between stacked sections */
+    }
+
+    .promo-section {
+        width: 100%; /* Make each section full-width */
+    }
+
+    .small-blocks {
+        display: flex;
+        flex-direction: column; /* Stack small blocks */
+        gap: 20px;
     }
 }
 
@@ -672,6 +793,14 @@ header {
     }
 }
 
+/* Přizpůsobení pro menší obrazovky */
+@media (max-width: 400px) {
+    .login-form-container {
+        width: 90%;
+        height: auto;
+    }
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -691,6 +820,10 @@ footer #copy-info-footer {
 
 footer #copy-info-footer a {
     color: var(--main-color);
+    text-decoration: none;
+}
+
+.account-container a {
     text-decoration: none;
 }
 
@@ -741,6 +874,7 @@ footer #copy-info-footer a {
     font-size: 14px;
     font-weight: bold;
     margin: 10px 0;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
@@ -770,7 +904,7 @@ footer #copy-info-footer a {
     margin-bottom: 20px;
 }
 
-label:hover,
+.search-form label:hover,
 select:hover {
     cursor: pointer;
     color: var(--hover-color);
@@ -806,4 +940,223 @@ label {
     color: white;
     font-size: 16px;
     text-align: center;
+}
+
+/* Obecné styly */
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background-color: #f9f9f9;
+}
+
+.login-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 900px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Levý blok: Účet uživatele */
+.user-account {
+    flex: 1 1 calc(50% - 10px);
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-right: 1px solid #ddd;
+}
+
+.user-account h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center; /* Zarovná checkbox, label a tooltip vertikálně */
+    margin-bottom: 15px;
+    gap: 10px; /* Přidá prostor mezi prvky */
+    width: 15px;
+}
+
+.remember-me label {
+    font-size: 14px;
+    margin-left: 0; /* Zajistí, že text bude těsně u checkboxu */
+}
+
+.remember-me input {
+    margin: 0; /* Odstraní nadbytečné mezery kolem checkboxu */
+    transform: scale(1.2); /* Zvýrazní velikost checkboxu */
+    cursor: pointer;
+}
+
+.remember-me .tooltip {
+    font-size: 12px;
+    color: #666;
+    cursor: pointer;
+    display: inline-block;
+    background: #f0f0f0;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    margin-left: 5px; /* Odsazení tooltipu od textu */
+}
+
+.remember-me .tooltip:hover {
+    background: #ddd;
+    color: #000;
+    border-color: #aaa;
+}
+
+
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ba0305;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #900202;
+}
+
+.password-reset {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.password-reset a {
+    color: #ba0305;
+    text-decoration: none;
+}
+
+.password-reset a:hover {
+    text-decoration: underline;
+}
+
+/* Pravý blok: Přihlášení přes aplikace */
+.app-login {
+    flex: 1 1 calc(50% - 10px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.app-login h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-btn.facebook {
+    background-color: #3b5998;
+    color: white;
+}
+
+.login-btn.google {
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.login-btn.apple {
+    background-color: black;
+    color: white;
+}
+
+.login-btn.mojeid {
+    background-color: #333;
+    color: white;
+}
+
+.login-btn:hover {
+    opacity: 0.9;
+}
+
+.notFoundPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Nastaví výšku tak, aby obsah byl ve středu obrazovky */
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notFoundPage h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ba0305;
+    margin-bottom: 20px;
+}
+
+.notFoundPage p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.notFoundPage button {
+    background-color: #ba0305;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.notFoundPage button:hover {
+    background-color: #900202;
 }

@@ -10,6 +10,7 @@
 <div class="page-background"> <!-- Pozadí s reklamou -->
     <a href="https://www.alza.cz/" class="background-link"></a>
     <div class="content-container"> <!-- Hlavní obsahový blok -->
+        <a href="projekce.html"><h4>ČSFD projekce <i>Gladiátor 2</i> <b>></b></h4></a>
         <header>
             <div class="header-top-section">
                 <div class="header-left">
@@ -25,6 +26,7 @@
                         <span class="filter-btn-txt">Podrobné vyhledávání</span>
                     </button>
                 </div>
+                <a href="login.html">
                 <div class="account-container">
                     <button class="account-btn">
                         <img src="img/icons/account.png" alt="Icon" class="icon">
@@ -32,21 +34,38 @@
                     </button>
                     <div class="dropdown-menu">
                         <div class="control-panel">Ovládací panel</div>
-                        <a href="#" style="color: #007dbd">Přihlášení</a>
-                        <a href="#" style="color: #007dbd">Registrace</a>
-                        <a href="#" style="color: #007dbd">Zapomenuté heslo</a>
-                        <a href="#" style="color: #BA0305">Přidat film</a>
-                        <a href="#" style="color: #BA0305">Přidat tvůrce</a>
+                        <a href="login.html" style="color: #007dbd">Přihlášení</a>
+                        <a href="notfound.html" style="color: #007dbd">Registrace</a>
+                        <a href="notfound.html" style="color: #007dbd">Zapomenuté heslo</a>
+                        <a href="notfound.html" style="color: #BA0305">Přidat film</a>
+                        <a href="notfound.html" style="color: #BA0305">Přidat tvůrce</a>
                         <div class="dropdown-submenu">
                             <a>Správa účtu</a>
                             <div class="submenu">
-                                <a href="#">Změnit heslo</a>
-                                <a href="#">Správa profilu</a>
-                                <a href="#">Odhlásit se</a>
+                                <a href="notfound.html">Změnit heslo</a>
+                                <a href="notfound.html">Správa profilu</a>
+                                <a href="notfound.html">Odhlásit se</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                </a>
+            </div>
+            <div class="header-bottom-section">
+                <nav>
+                    <a href="notfound.html">Novinky</a>
+                    <a href="notfound.html">Televize</a>
+                    <a href="notfound.html">Kino</a>
+                    <a href="notfound.html">VOD</a>
+                    <a href="notfound.html">Žebříčky</a>
+                    <a href="notfound.html">Blu-ray</a>
+                    <a href="notfound.html">DVD</a>
+                    <a href="notfound.html">Žánry</a>
+                    <a href="notfound.html">Ocenění</a>
+                    <a href="notfound.html">Uživatelé</a>
+                    <a href="notfound.html">Diskuze</a>
+                    <a href="notfound.html">Shop</a>
+                </nav>
             </div>
         </header>
         <main class="filterPage">
@@ -202,10 +221,12 @@
                                 <label><input type="checkbox" name="additional[]" value="cinemas"> běží v kinech</label>
                                 <label><input type="checkbox" name="additional[]" value="vod"> k přehrání na VOD</label>
                                 <label><input type="checkbox" name="additional[]" value="tv"> poběží v TV</label>
+                                <br>
                                 <label><input type="checkbox" name="additional[]" value="filmoteka"> ve filmotéce</label>
                                 <label><input type="checkbox" name="additional[]" value="wanted"> ve filmotéce prodej/sháňka</label>
                                 <label><input type="checkbox" name="additional[]" value="bluray"> ke koupi na Blu-ray</label>
                                 <label><input type="checkbox" name="additional[]" value="dvd"> ke koupi na DVD</label>
+                                <br>
                                 <label><input type="checkbox" name="additional[]" value="reviewed"> s recenzemi</label>
                                 <label><input type="checkbox" name="additional[]" value="withGallery"> s galerií</label>
                                 <label><input type="checkbox" name="additional[]" value="withVideos"> s videi</label>
@@ -218,12 +239,12 @@
                             <!-- Column 4 -->
                             <div class="filter-column">
                                 <h3>Osoby</h3>
-                                Herci:<label><input type="text" name="actors"></label>
-                                Režiséři:<label><input type="text" name="directors"></label>
-                                Skladatelé:<label><input type="text" name="composers"></label>
-                                Scenáristé:<label><input type="text" name="composers"></label>
-                                Autoři předlohy:<label><input type="text" name="composers"></label>
-                                Kameramani:<label><input type="text" name="composers"></label>
+                                Herci:<label><input type="text" name="actors" pattern="[A-Za-z\s]+" title="Pouze písmena a mezery"></label>
+                                Režiséři:<label><input type="text" name="directors" pattern="[A-Za-z\s]+" title="Pouze písmena a mezery"></label>
+                                Skladatelé:<label><input type="text" name="skladatele" pattern="[A-Za-z\s]+" title="Pouze písmena a mezery"></label>
+                                Scenáristé:<label><input type="text" name="scenariste" pattern="[A-Za-z\s]+" title="Pouze písmena a mezery"></label>
+                                Autoři předlohy:<label><input type="text" name="autori" pattern="[A-Za-z\s]+" title="Pouze písmena a mezery"></label>
+                                Kameramani:<label><input type="text" name="camera" pattern="[A-Za-z\s]+" title="Pouze písmena a mezery"></label>
                             </div>
                         </div>
                     </div>
