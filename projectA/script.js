@@ -31,6 +31,8 @@ $(document).ready(function () {
     let lastRequestTime = 0; // Timestamp of the last API call
     const API_COOLDOWN = 5000; // 5 seconds
     let questionCache = JSON.parse(localStorage.getItem("questionCache")) || {};
+    const apiKey = 'YOUR_DEEPL_API_KEY';
+    const apiUrl = 'https://api-free.deepl.com/v2/translate';
 
 
     function setActiveCategory(category) {

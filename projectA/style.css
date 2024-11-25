@@ -1,6 +1,6 @@
 body {
     font-family: 'Comfortaa', cursive;
-    background: linear-gradient(-45deg,  #63B995, #63B995, #067b85);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
     background-size: 400% 400%;
     animation: gradientAnimation 8s ease infinite;
     margin: 0;
