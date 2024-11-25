@@ -28,45 +28,32 @@ $(document).ready(function () {
     let currentQuestionIndex = 0;
     let score = 0;
     let isLoadingQuestions = false; // Prevent duplicate API calls
-    let questionCache = {}; // Cache for storing questions
     let lastRequestTime = 0; // Timestamp of the last API call
-    const API_COOLDOWN = 5000; // 5 seconds cooldown between API calls
+    const API_COOLDOWN = 5000; // 5 seconds
+    let questionCache = JSON.parse(localStorage.getItem("questionCache")) || {};
 
-    // Set active category
+
     function setActiveCategory(category) {
         $(".category-button").removeClass("active");
         $(`.category-button[data-category="${category}"]`).addClass("active");
         currentCategory = category;
     }
 
-    // Set active difficulty
     function setActiveDifficulty(difficulty) {
         $(".difficulty-button").removeClass("active");
         $(`.difficulty-button[data-difficulty="${difficulty}"]`).addClass("active");
         currentDifficulty = difficulty;
     }
 
-    // Load questions from API
     function loadQuestions() {
         if (isLoadingQuestions) {
             console.log("Duplicate API call prevented");
             return;
         }
 
-        const cacheKey = `${currentCategory}-${currentDifficulty}`;
+        const url = API_LINKS[currentCategory][currentDifficulty]; // API URL as cache key
 
-        // Check cache
-        if (questionCache[cacheKey]) {
-            console.log("Using cached questions");
-            questions = questionCache[cacheKey];
-            currentQuestionIndex = 0;
-            score = 0;
-            showQuestion();
-            $("#quizModal").addClass("active");
-            return;
-        }
-
-        // Global cooldown check
+        // Global cooldown
         const now = Date.now();
         if (now - lastRequestTime < API_COOLDOWN) {
             console.log("Global cooldown in effect. Skipping API call.");
@@ -74,16 +61,16 @@ $(document).ready(function () {
             return;
         }
 
-        lastRequestTime = now; // Update the timestamp
-        isLoadingQuestions = true; // Prevent additional calls
-        const url = API_LINKS[currentCategory][currentDifficulty];
-        console.log(`Fetching data from API: ${url}`);
+        lastRequestTime = now; // Update timestamp
+        isLoadingQuestions = true; // Prevent duplicate calls
 
+        console.log(`Fetching data from API: ${url}`);
         $.getJSON(url)
             .done(function (data) {
                 console.log("API response received");
                 if (data && data.results && data.results.length > 0) {
-                    questionCache[cacheKey] = data.results; // Cache the questions
+                    questionCache[url] = data.results; // Cache  result
+                    saveCacheToLocalStorage(); // Persist
                     questions = data.results;
                     currentQuestionIndex = 0;
                     score = 0;
@@ -96,7 +83,16 @@ $(document).ready(function () {
             })
             .fail(function () {
                 console.log("API request failed");
-                showError("Error fetching data. Please try again later.");
+                if (questionCache[url]) {
+                    console.log("Using cached questions due to API failure");
+                    questions = questionCache[url];
+                    currentQuestionIndex = 0;
+                    score = 0;
+                    showQuestion();
+                    $("#quizModal").addClass("active");
+                } else {
+                    showError("Error fetching data and no cached data available. Please try again later.");
+                }
             })
             .always(function () {
                 isLoadingQuestions = false; // Reset loading state
@@ -105,7 +101,11 @@ $(document).ready(function () {
     }
 
 
-    // Show current question
+    function saveCacheToLocalStorage() {
+        localStorage.setItem("questionCache", JSON.stringify(questionCache));
+    }
+
+
     function showQuestion() {
         if (questions.length === 0) {
             showError("No questions available. Please try reloading.");
@@ -113,18 +113,18 @@ $(document).ready(function () {
         }
 
         const question = questions[currentQuestionIndex];
-        const decodedQuestion = decodeHtmlEntities(question.question); // Decode the question text
+        const decodedQuestion = decodeHtmlEntities(question.question); // Decode question text
 
         $(".question").text(`${currentQuestionIndex + 1}. ${decodedQuestion}`);
-        $(".answer-button").removeClass("correct incorrect jump shake"); // Reset button styles
+        $(".answer-button").removeClass("correct incorrect jump shake"); // Reset buttons
 
         // GSAP Animace
-        gsap.from(".question", { opacity: 0, duration: 1, y: -30 }); // Fade-in a pohyb otázky
-        gsap.from(".answer-button", { opacity: 0, duration: 0.5, stagger: 0.2, scale: 0.8 }); // Postupné zobrazení tlačítek
+        gsap.from(".question", { opacity: 0, duration: 1, y: -30 }); // Question fade in
+        gsap.from(".answer-button", { opacity: 0, duration: 0.5, stagger: 0.2, scale: 0.8 }); // Buttons fade in
     }
 
 
-    // Handle answer with animations
+    // Handle answers
     function handleAnswer(userAnswer) {
         if (questions.length === 0) return;
 
@@ -143,9 +143,9 @@ $(document).ready(function () {
                 currentQuestionIndex++;
                 showQuestion();
             } else {
-                showScore(); // Call the new score display
+                showScore();
             }
-        }, 1000); // Delay for animations
+        }, 500); // Delay for animations
     }
 
     // Decode HTML entities in question text
@@ -165,10 +165,9 @@ $(document).ready(function () {
             <button id="close-quiz" class="btn close-btn">Close</button>
         </div>
     `;
-        $(".modal").html(scoreHtml); // Replace modal content with scorecard
+        $(".modal").html(scoreHtml); // Replace question with scorecard
     }
 
-    // Show an error message
     function showError(message) {
         const errorHtml = `
         <div class="error-message">
@@ -201,12 +200,12 @@ $(document).ready(function () {
     });
 
     $(document).off("click", "#restart-quiz").on("click", "#restart-quiz", function () {
-        $("#quizModal").removeClass("active"); // Close the modal
+        $("#quizModal").removeClass("active"); // Close modal
         loadQuestions(); // Reload questions
     });
 
     $(document).off("click", "#close-quiz").on("click", "#close-quiz", function () {
-        $("#quizModal").removeClass("active"); // Close the modal
+        $("#quizModal").removeClass("active"); // Close modal
         window.location.reload(); // Reload the page
     });
 
