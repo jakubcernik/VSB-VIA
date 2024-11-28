@@ -31,6 +31,21 @@ $(document).ready(function () {
     let lastRequestTime = 0; // Timestamp of the last API call
     const API_COOLDOWN = 5000; // 5 seconds
     let questionCache = JSON.parse(localStorage.getItem("questionCache")) || {};
+    let answerCache = Array(10).fill(null); // Pole pro odpovědi uživatele
+
+    $(document).on("click", "#previous-question", function () {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            showQuestion();
+        }
+    });
+
+    $(document).on("click", "#next-question", function () {
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            showQuestion();
+        }
+    });
 
 
     function setActiveCategory(category) {
@@ -113,20 +128,29 @@ $(document).ready(function () {
         }
 
         const question = questions[currentQuestionIndex];
-        const decodedQuestion = decodeHtmlEntities(question.question); // Decode question text
+        const decodedQuestion = decodeHtmlEntities(question.question);
 
         $(".question").text(`${currentQuestionIndex + 1}. ${decodedQuestion}`);
-        $(".answer-button").removeClass("correct incorrect jump shake"); // Reset buttons
+        $(".answer-button").removeClass("correct incorrect jump shake disabled");
 
-        // GSAP Animace
-        gsap.from(".question", { opacity: 0, duration: 1, y: -30 }); // Question fade in
-        gsap.from(".answer-button", { opacity: 0, duration: 0.5, stagger: 0.2, scale: 0.8 }); // Buttons fade in
+        const userAnswer = answerCache[currentQuestionIndex];
+        if (userAnswer !== null) {
+            // Zašednout tlačítka, pokud už bylo odpovězeno
+            $(".answer-button").addClass("disabled");
+            $(`.answer-button[data-answer="${userAnswer}"]`).addClass("correct");
+        }
+
+        updateIndicators();
+
+        gsap.from(".question", { opacity: 0, duration: 1, y: -30 });
+        gsap.from(".answer-button", { opacity: 0, duration: 0.5, stagger: 0.2, scale: 0.8 });
     }
-
 
     // Handle answers
     function handleAnswer(userAnswer) {
-        if (questions.length === 0) return;
+        if (questions.length === 0 || answerCache[currentQuestionIndex] !== null) return;
+
+        answerCache[currentQuestionIndex] = userAnswer; // Uložit odpověď
 
         const correctAnswer = questions[currentQuestionIndex].correct_answer;
         const selectedButton = $(`.answer-button[data-answer="${userAnswer}"]`);
@@ -138,6 +162,9 @@ $(document).ready(function () {
             selectedButton.addClass("incorrect shake");
         }
 
+        // Zakázat tlačítka po odpovězení
+        $(".answer-button").addClass("disabled");
+
         setTimeout(() => {
             if (currentQuestionIndex < questions.length - 1) {
                 currentQuestionIndex++;
@@ -145,7 +172,22 @@ $(document).ready(function () {
             } else {
                 showScore();
             }
-        }, 500); // Delay for animations
+        }, 500);
+    }
+
+    function updateIndicators() {
+        const indicatorsContainer = $(".question-indicators");
+        indicatorsContainer.empty(); // Vyčistit staré indikátory
+
+        questions.forEach((_, index) => {
+            const indicator = $("<span></span>");
+            if (index === currentQuestionIndex) {
+                indicator.addClass("active");
+            } else if (answerCache[index] !== null) {
+                indicator.addClass("answered");
+            }
+            indicatorsContainer.append(indicator);
+        });
     }
 
     // Decode HTML entities in question text
@@ -161,7 +203,6 @@ $(document).ready(function () {
         <div class="score-card">
             <h2>Quiz Finished!</h2>
             <p>Your Score: <strong>${score}/${questions.length}</strong></p>
-            <button id="restart-quiz" class="btn restart-btn">Restart Quiz</button>
             <button id="close-quiz" class="btn close-btn">Close</button>
         </div>
     `;
@@ -197,11 +238,6 @@ $(document).ready(function () {
 
     $(document).off("click", ".answer-button").on("click", ".answer-button", function () {
         handleAnswer($(this).data("answer"));
-    });
-
-    $(document).off("click", "#restart-quiz").on("click", "#restart-quiz", function () {
-        $("#quizModal").removeClass("active"); // Close modal
-        loadQuestions(); // Reload questions
     });
 
     $(document).off("click", "#close-quiz").on("click", "#close-quiz", function () {
