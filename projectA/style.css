@@ -259,3 +259,32 @@ h1 {
     color: white;
 }
 
+.question-indicators {
+    display: flex;
+    justify-content: center;
+    height: 38px;
+}
+
+.question-indicators span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: #ccc;
+}
+
+.question-indicators .active {
+    background-color: #007bff;
+}
+
+.question-indicators .answered {
+    background-color: #28a745;
+}
+
+.answer-button.disabled {
+    background-color: #ccc;
+    color: #666;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
