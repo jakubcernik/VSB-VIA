@@ -28,10 +28,10 @@ $(document).ready(function () {
     let currentQuestionIndex = 0;
     let score = 0;
     let isLoadingQuestions = false; // Prevent duplicate API calls
-    let lastRequestTime = 0; // Timestamp of the last API call
+    let lastRequestTime = 0; // last API call
     const API_COOLDOWN = 5000; // 5 seconds
     let questionCache = JSON.parse(localStorage.getItem("questionCache")) || {};
-    let answerCache = Array(10).fill(null); // Pole pro odpovědi uživatele
+    let answerCache = Array(10).fill(null);
 
     $(document).on("click", "#previous-question", function () {
         if (currentQuestionIndex > 0) {
@@ -76,8 +76,8 @@ $(document).ready(function () {
             return;
         }
 
-        lastRequestTime = now; // Update timestamp
-        isLoadingQuestions = true; // Prevent duplicate calls
+        lastRequestTime = now;
+        isLoadingQuestions = true;
 
         console.log(`Fetching data from API: ${url}`);
         $.getJSON(url)
@@ -135,7 +135,7 @@ $(document).ready(function () {
 
         const userAnswer = answerCache[currentQuestionIndex];
         if (userAnswer !== null) {
-            // Zašednout tlačítka, pokud už bylo odpovězeno
+            // Grey out buttons
             $(".answer-button").addClass("disabled");
             $(`.answer-button[data-answer="${userAnswer}"]`).addClass("correct");
         }
@@ -150,7 +150,7 @@ $(document).ready(function () {
     function handleAnswer(userAnswer) {
         if (questions.length === 0 || answerCache[currentQuestionIndex] !== null) return;
 
-        answerCache[currentQuestionIndex] = userAnswer; // Uložit odpověď
+        answerCache[currentQuestionIndex] = userAnswer;
 
         const correctAnswer = questions[currentQuestionIndex].correct_answer;
         const selectedButton = $(`.answer-button[data-answer="${userAnswer}"]`);
@@ -162,7 +162,6 @@ $(document).ready(function () {
             selectedButton.addClass("incorrect shake");
         }
 
-        // Zakázat tlačítka po odpovězení
         $(".answer-button").addClass("disabled");
 
         setTimeout(() => {
@@ -177,7 +176,7 @@ $(document).ready(function () {
 
     function updateIndicators() {
         const indicatorsContainer = $(".question-indicators");
-        indicatorsContainer.empty(); // Vyčistit staré indikátory
+        indicatorsContainer.empty();
 
         questions.forEach((_, index) => {
             const indicator = $("<span></span>");

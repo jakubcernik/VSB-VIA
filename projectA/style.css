@@ -1,6 +1,6 @@
 body {
     font-family: 'Comfortaa', cursive;
-    background: linear-gradient(-45deg,  #63B995, #63B995, #067b85);
+    background: linear-gradient(-45deg,  #63B995, #63B995, #067b85, #067b85, #63B995, #63B995, #067b85, #067b85);
     background-size: 400% 400%;
     animation: gradientAnimation 8s ease infinite;
     margin: 0;
@@ -154,13 +154,13 @@ h1 {
 }
 
 .correct {
-    background-color: #249a3f !important; /* Green */
+    background-color: #249a3f !important;
     color: white;
     animation: jump 0.5s ease;
 }
 
 .incorrect {
-    background-color: #af3e4b !important; /* Red */
+    background-color: #af3e4b !important;
     color: white;
     animation: shake 0.5s ease;
 }
