@@ -1,5 +1,6 @@
 (() => {
-    // Slider Functionality
+
+    // Slider
     const slides = document.querySelectorAll('.slide');
     let currentIndex = 0;
     let slideInterval;
@@ -17,7 +18,7 @@
             const link = slide.querySelector('a');
             link.addEventListener('click', (event) => {
                 if (idx !== currentIndex) {
-                    event.preventDefault(); // Zabraňuje otevření nesprávného obrázku v Lightboxu
+                    event.preventDefault();
                 }
             });
         });
@@ -41,10 +42,10 @@
 
     function resetInterval() {
         clearInterval(slideInterval);
-        slideInterval = setInterval(showNextImage, 10000);
+        slideInterval = setInterval(showNextImage, 5000);
     }
 
-    // Date and Time Updater
+    // Date Time
     function initDateTime() {
         const datetimeElement = document.getElementById('datetime');
         if (!datetimeElement) return;
@@ -84,7 +85,7 @@
         }
     }
 
-    // Initialize All Functions
+    // Initialize All
     function init() {
         initSlider();
         initDateTime();
@@ -92,6 +93,5 @@
         initFilterButton();
     }
 
-    // Run Initialization
     init();
 })();

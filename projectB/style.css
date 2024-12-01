@@ -1,4 +1,4 @@
-/* Definice společných barev a fontu */
+/* Global variables */
 :root {
     --main-color: #BA0305;
     --hover-color: #900202;
@@ -8,7 +8,6 @@
     --font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-/* Globální styly */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,19 +16,19 @@
 }
 
 html {
-    overflow-y: hidden; /* Skryje vertikální scrollbar */
-    overflow-x: hidden; /* Skryje horizontální scrollbar */
+    overflow-y: hidden; /* Hides vertical scrollbar */
+    overflow-x: hidden;
     height: 100%;
 }
 
 body {
     height: 100%;
     overflow-x: hidden;
-    overflow-y: scroll; /* Zachová možnost scrollování obsahu */
+    overflow-y: scroll;
     background-color: var(--background-color);
 }
 
-/* Pozadí s reklamou */
+/* Advert background (Alza banner) */
 .page-background {
     width: 100%;
     display: flex;
@@ -60,7 +59,6 @@ body {
     border-radius: 4px;
 }
 
-/* Hlavička */
 header {
     background-color: var(--main-color);
     color: white;
@@ -130,14 +128,12 @@ h4:hover{
     margin-right: 15px;
 }
 
-/* Tlačítko Můj účet */
 .header-top-section button {
     border: none;
     cursor: pointer;
     padding: 5px 10px;
 }
 
-/* Vyhledávací pole */
 .search-field {
     display: flex;
     align-items: center;
@@ -178,7 +174,6 @@ h4:hover{
     height: 18px;
 }
 
-/* Tlačítko Účet */
 .account-container {
     position: relative;
     display: inline-block;
@@ -245,7 +240,6 @@ h4:hover{
     background-color: #f1f1f1;
 }
 
-/* Submenu styl */
 .dropdown-submenu {
     position: relative;
 }
@@ -287,7 +281,6 @@ h4:hover{
     color: var(--main-color);
 }
 
-/* Hlavní obsah */
 .indexPage {
     padding: 20px 0;
     width: 100%;
@@ -328,7 +321,6 @@ h4:hover{
     margin-bottom: 0;
 }
 
-/* Blok sponzora a soutěže */
 .sponsor-block,
 .contest-block {
     background-color: #f9f9f9;
@@ -419,7 +411,6 @@ h4:hover{
     margin-top: 5px;
 }
 
-/* Slider */
 .slides {
     position: relative;
     height: 400px;
@@ -491,7 +482,6 @@ h4:hover{
     flex-shrink: 0;
 }
 
-/* Nadpisy */
 .search-form-container h2,
 .login-form-container h2,
 .trailer h2 {
@@ -509,7 +499,6 @@ h4:hover{
     font-weight: 500;
 }
 
-/* Promo sekce */
 .promo {
     display: flex;
     flex-wrap: wrap;
@@ -548,13 +537,12 @@ h4:hover{
     border-radius: 4px;
     border: solid 1px #e3e3e3;
 
-    width: calc(50% - 10px); /* Keep the width consistent */
+    width: calc(50% - 10px);
 }
 
 
 .kino {
-    padding: 2px;
-    padding-left: 10px;
+    padding: 2px 2px 2px 10px;
     background-color: #f3efef;
     font-weight: normal;
     font-size: small;
@@ -626,7 +614,6 @@ h4:hover{
     padding: 5px;
 }
 
-/* Tlačítko filtru */
 .filter-btn {
     display: flex;
     align-items: center;
@@ -654,12 +641,12 @@ h4:hover{
     font-size: 14px;
 }
 
-/* Responzivní promo sekce */
+/* Responsive design */
 @media (max-width: 768px) {
     .promo {
         display: flex;
-        flex-direction: column; /* Stack promo sections */
-        gap: 20px; /* Add spacing between stacked sections */
+        flex-direction: column;
+        gap: 20px;
     }
 
     .promo-section {
@@ -668,7 +655,7 @@ h4:hover{
 
     .small-blocks {
         display: flex;
-        flex-direction: column; /* Stack small blocks */
+        flex-direction: column;
         gap: 20px;
     }
 
@@ -677,7 +664,6 @@ h4:hover{
     }
 }
 
-/* TV tipy */
 .tv-tips ul {
     list-style: none;
 }
@@ -686,7 +672,6 @@ h4:hover{
     margin: 5px 0;
 }
 
-/* Responzivita */
 @media (max-width: 1065px) {
     .content-container {
         width: 80% !important;
@@ -798,7 +783,6 @@ h4:hover{
     }
 }
 
-/* Přizpůsobení pro menší obrazovky */
 @media (max-width: 400px) {
     .login-form-container {
         width: 90%;
@@ -806,7 +790,6 @@ h4:hover{
     }
 }
 
-/* Footer */
 footer {
     text-align: center;
     background-color: #333;
@@ -832,7 +815,7 @@ footer #copy-info-footer a {
     text-decoration: none;
 }
 
-/* Grid Layout pro filtry */
+/* Grid Layout for filters */
 .form-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -947,7 +930,6 @@ label {
     text-align: center;
 }
 
-/* Obecné styly */
 .loginPage {
     display: flex;
     justify-content: center;
@@ -967,7 +949,6 @@ label {
     overflow: hidden;
 }
 
-/* Levý blok: Účet uživatele */
 .user-account {
     flex: 1 1 calc(50% - 10px);
     padding: 20px;
@@ -1000,20 +981,20 @@ label {
 
 .remember-me {
     display: flex;
-    align-items: center; /* Zarovná checkbox, label a tooltip vertikálně */
+    align-items: center;
     margin-bottom: 15px;
-    gap: 10px; /* Přidá prostor mezi prvky */
+    gap: 10px;
     width: 15px;
 }
 
 .remember-me label {
     font-size: 14px;
-    margin-left: 0; /* Zajistí, že text bude těsně u checkboxu */
+    margin-left: 0;
 }
 
 .remember-me input {
-    margin: 0; /* Odstraní nadbytečné mezery kolem checkboxu */
-    transform: scale(1.2); /* Zvýrazní velikost checkboxu */
+    margin: 0;
+    transform: scale(1.2);
     cursor: pointer;
 }
 
@@ -1030,7 +1011,7 @@ label {
     line-height: 18px;
     font-weight: bold;
     border: 1px solid #ccc;
-    margin-left: 5px; /* Odsazení tooltipu od textu */
+    margin-left: 5px;
 }
 
 .remember-me .tooltip:hover {
@@ -1070,7 +1051,6 @@ label {
     text-decoration: underline;
 }
 
-/* Pravý blok: Přihlášení přes aplikace */
 .app-login {
     flex: 1 1 calc(50% - 10px);
     padding: 20px;
@@ -1131,7 +1111,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh; /* Nastaví výšku tak, aby obsah byl ve středu obrazovky */
+    height: 70vh;
     text-align: center;
     background-color: #f5f5f5;
     border-radius: 5px;
